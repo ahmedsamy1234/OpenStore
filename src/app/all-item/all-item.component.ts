@@ -23,18 +23,12 @@ export class AllItemComponent implements OnInit {
   }
 
   syncAll(){
-    this.itemsService.getAllProducts().subscribe((response)=>{
-
-      this.items.push(...response)
-      console.log(...this.items);
-
-
-      console.log();
+   this.items= this.itemsService.getAllproductUsingNoAPi();
 
 
     
-  } )
+  } 
 }
-}
+
 
 
