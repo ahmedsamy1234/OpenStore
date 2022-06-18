@@ -1,0 +1,17 @@
+<div class="row ">
+
+    <div *ngFor="let item of items" class="col-md-3 text-center box mt-4">
+
+        <div class="contentBox ">
+            <div class="d-flex justify-content-center w-100 bg-light ">
+                <img class="w-100" [src]="item.imageUrl" />
+            </div>
+            <a class="btn btn-info btnCard"  >Sync</a>
+        </div>
+        <div class="card contentBoxDetials pt-2">
+            <h5>{{item.name}}</h5>
+            <p class="price">${{item.price}}.00</p>
+        </div>
+
+    </div>
+</div>
