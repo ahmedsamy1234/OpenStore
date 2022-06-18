@@ -8,8 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllItemComponent } from './all-item/all-item.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,MatGridListModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
