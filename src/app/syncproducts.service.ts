@@ -18,23 +18,76 @@ export class SyncproductsService {
   }
     
   
-  getProductByID(id: string)
+  fetchProductByID(id: number)
   {
-    return this.http.get<Product>(this.baseurl+id+".json");
+    return this.http.get<Product>(this.singleItem+id+".json");
 
   }
+
+  DoGolbalsync()
+
+  {  this.fetchAllProducts().subscribe((response)=>{
+    this.products=[];  
+    this.products.push(...response)
+    console.log("nomemmoy");
+
+    localStorage.removeItem('allproducts');
+      localStorage.setItem("allproducts", JSON.stringify(this.products));
+    return JSON.parse(localStorage.getItem('allproducts') as string);
+
+
+  })
+  }
+DolocalsyncById(id:number)
+{
+  if (localStorage.getItem('allproducts') == null)
+  {
+    throw new Error("You Should fetch global products Firsts");
+    
+
+  }
+ else 
+ {
+  
+
+  this.products=JSON.parse(localStorage.getItem('allproducts') as string)
+  
+  for (let i = 0; i < this.products.length; i++) {
+
+    if (this.products[i].id==id)
+    {
+      this.fetchProductByID(id).subscribe((response)=>
+
+{
+        this.products[i]=response
+
+        console.log("ana Henaa");
+}
+      )
+
+      localStorage.setItem("allproducts", JSON.stringify(this.products));
+      location.reload();
+
+
+  }
+
+ 
+ }
+  
+}
+
+
+}
 
   getAllproductUsingNoAPi()
 {
   if (localStorage.getItem('allproducts') == null)
   {
-  this.fetchAllProducts().subscribe((response)=>{
 
-      this.products.push(...response)
-      console.log("nomemmoy");
-        localStorage.setItem("allproducts", JSON.stringify(this.products));
-      return JSON.parse(localStorage.getItem('allproducts') as string);
-      })
+
+
+    this.DoGolbalsync();
+     
     }
 
       else 
@@ -44,9 +97,6 @@ export class SyncproductsService {
 
       }
 
-
-
-  
 
   }
 

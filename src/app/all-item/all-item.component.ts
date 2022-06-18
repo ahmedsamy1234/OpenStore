@@ -22,6 +22,19 @@ export class AllItemComponent implements OnInit {
 
   }
 
+  LocalSync(x:any)
+  {
+
+    console.log(x)
+    this.itemsService.DolocalsyncById(x)
+
+  }
+
+  GlobalSync()
+{
+  this.itemsService.DoGolbalsync();
+}
+
   syncAll(){
    this.items= this.itemsService.getAllproductUsingNoAPi();
 

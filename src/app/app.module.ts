@@ -7,13 +7,15 @@ import { LeftPanelComponent } from './left-panel/left-panel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllItemComponent } from './all-item/all-item.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftPanelComponent,
-    AllItemComponent
+    AllItemComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,9 @@
+<div class="container pt-4 parentDiv">
+    <div class="d-flex justify-content-between">
+        <h3>Products</h3>
+        <button  (click)="GlobalSync()" class="btn btn-warning btnWarnSync" > Global Sync</button>
+      
+    </div>
 <div class="row ">
 
     <div *ngFor="let item of items" class="col-md-3 text-center box mt-4">
@@ -6,7 +12,7 @@
             <div class="d-flex justify-content-center w-100 bg-light ">
                 <img class="w-100" [src]="item.imageUrl" />
             </div>
-            <a class="btn btn-info btnCard"  >Sync</a>
+            <button class="btn btn-info btnCard" (click)="LocalSync(item.id)"  >Sync </button>
         </div>
         <div class="card contentBoxDetials pt-2">
             <h5>{{item.name}}</h5>
